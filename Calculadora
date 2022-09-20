@@ -1,0 +1,81 @@
+import java.util.Scanner;
+
+public class Main {
+    public static Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+        double numero[] = new double[5];
+        System.out.printf("Insira 5 números:");
+
+        for (int i = 0; i < 5; i++) {
+            numero[i] = sc.nextInt();
+        }
+        System.out.print("Qual o tipo de operação que deseja realizar?\n1 - Soma" +
+                "\n2 - Subtração" +
+                "\n3 - Multiplicação" +
+                "\n4 - Divisão" +
+                "\n5 - Raiz Quadrada" +
+                "\n->");
+        int opcao = sc.nextInt();
+
+        switch (opcao) {
+            case 1:
+                System.out.printf("A soma dos números é: %.2d", soma(numero));
+                break;
+            case 2:
+                System.out.printf("A subtração dos números é: %d", subtracao(numero));
+                break;
+            case 3:
+                System.out.printf("A multiplicação dos números é: %d", multiplicacao(numero));
+                break;
+            case 4:
+                System.out.printf("A divisão dos números é: %d", divisao(numero));
+                break;
+            case 5:
+                System.out.printf("A raiz quadrada dos números é: %d", raizQuadrada(numero));
+                break;
+            default:
+                System.out.println("Opção inválida!");
+        }
+    }
+
+    private static double raizQuadrada(double[] numero) {
+        double soma = 0;
+        for (int i = 0; i < 5; i++) {
+            soma += Math.sqrt(numero[i]);
+        }
+        return soma;
+    }
+
+    private static double divisao(double[] numero) {
+        double resultado = numero[0];
+        for (int i = 1; i < 5; i++) {
+            resultado /= numero[i];
+        }
+        return resultado;
+    }
+
+    private static double multiplicacao(double[] numero) {
+        double resultado = 1;
+        for (int i = 0; i < 5; i++) {
+            resultado *= numero[i];
+        }
+        return resultado;
+    }
+
+    private static Double subtracao(double[] numero) {
+        double resultado = numero[0];
+        for (int i = 1; i < 5; i++) {
+            resultado -= numero[i];
+        }
+        return resultado;
+    }
+
+    private static double soma(double[] numero) {
+        double soma = 0;
+        for (int i = 0; i < 5; i++) {
+            soma += numero[i];
+        }
+        return soma;
+    }
+}
+
